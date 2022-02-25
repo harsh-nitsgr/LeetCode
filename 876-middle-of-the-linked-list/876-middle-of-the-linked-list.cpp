@@ -20,7 +20,9 @@ public:
         // for(int i=0;i<size/2;i++)head=head->next;
         // return head;
         ListNode* fast=head,*slow=head;
-        while(fast and fast->next) fast=fast->next->next,slow=slow->next;
+        while(fast!=NULL and fast->next !=NULL) {
+            fast=fast->next->next,slow=slow->next;
+        }
         return slow;
     }
 };
