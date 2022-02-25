@@ -12,8 +12,8 @@ public:
         
         ListNode* toDelete;
         bool visited=0;
-        while(node->next){
-            if(!visited and !node->next->next)toDelete=node,visited=1;
+        while(node->next != NULL){
+            if(!visited and node->next->next ==NULL)toDelete=node,visited=1;
             node->val=node->next->val;
             node=node->next; 
         }
