@@ -9,13 +9,23 @@
 class Solution {
 public:
     ListNode *detectCycle(ListNode *head) {
-        unordered_set<ListNode*>set;
+        //using hashmap
+        // unordered_set<ListNode*>set;
+        // while(head){
+        //     set.insert(head);
+        //     if(set.find(head->next)!=set.end())return head->next;
+        //     head=head->next;
+        // }
+        // return nullptr;
         
+        //using two pointers
+        ListNode* node=head;
         while(head){
-            set.insert(head);
-            if(set.find(head->next)!=set.end())return head->next;
+            if(head->val!=100001)head->val=100001;
+            else return head;
             head=head->next;
         }
-        return nullptr;
+        return NULL;
+        
     }
 };
