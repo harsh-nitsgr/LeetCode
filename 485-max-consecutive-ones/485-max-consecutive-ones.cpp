@@ -7,10 +7,10 @@ public:
         for(auto &num:nums){
             if(num!=0)cur_max++;
             else{
-                final_max=max(final_max,cur_max);
+                if(cur_max>final_max)final_max=cur_max;
                 cur_max=0;
             }
         }
-        return max(final_max,cur_max);
+        return (final_max>cur_max)?final_max:cur_max;
     }
 };
