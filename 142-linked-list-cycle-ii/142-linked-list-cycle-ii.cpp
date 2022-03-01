@@ -6,26 +6,39 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
-class Solution {
-public:
-    ListNode *detectCycle(ListNode *head) {
-        //using hashmap
-        // unordered_set<ListNode*>set;
-        // while(head){
-        //     set.insert(head);
-        //     if(set.find(head->next)!=set.end())return head->next;
-        //     head=head->next;
-        // }
-        // return nullptr;
+// class Solution {
+// public:
+//     ListNode *detectCycle(ListNode *head) {
+//         // using hashmap
+//         unordered_set<ListNode*>set;
+//         while(head){
+//             set.insert(head);
+//             if(set.find(head->next)!=set.end())return head->next;
+//             head=head->next;
+//         }
+//         return nullptr;
+ 
         
-        //using two pointers
-        ListNode* node=head;
-        while(head){
-            if(head->val!=100001)head->val=100001;
-            else return head;
-            head=head->next;
+//     }
+// };
+
+// two pointer mtd:
+
+class Solution{
+    public:
+        ListNode*detectCycle(ListNode* head){
+            ListNode* fast=head,*slow=head;
+            while(fast and fast->next){
+                fast=fast->next->next;
+                slow=slow->next;
+                if(fast==slow){
+                    while(head != fast){
+                        fast=fast->next;
+                        head=head->next;
+                    }
+                    return head;
+                }
+            }
+            return NULL;
         }
-        return NULL;
-        
-    }
 };
