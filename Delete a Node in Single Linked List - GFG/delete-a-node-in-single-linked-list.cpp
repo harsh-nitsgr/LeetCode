@@ -85,17 +85,30 @@ struct Node
 /*You are required to complete below method*/
 Node* deleteNode(Node *head,int x)
 {
-    if(x==1)return head->next;
-    int i=1;
-    Node* temp=head;
-    while(temp and i<x-1){
-        temp=temp->next;
-        i++;
-    }
+    // if(x==1)return head->next;
+    // int i=1;
+    // Node* temp=head;
+    // while(temp and i<x-1){
+    //     temp=temp->next;
+    //     i++;
+    // }
     
-    Node* n=NULL;
-    if(temp->next->next)n=temp->next->next;
-    temp->next=n;
+    // Node* n=NULL;
+    // if(temp->next->next)n=temp->next->next;
+    // temp->next=n;
+    // return head;
+    
+    Node* temp=head;
+    int i=1;
+    while(temp->next){
+        if(i>=x)temp->data=temp->next->data;
+        i++;
+        temp=temp->next;
+    }
+    temp=head;
+    while(temp->next->next)temp=temp->next;
+    temp->next=NULL;
     return head;
     
+    return head;
 }
