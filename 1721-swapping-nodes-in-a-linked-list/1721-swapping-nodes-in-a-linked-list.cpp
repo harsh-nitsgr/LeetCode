@@ -12,7 +12,13 @@ class Solution {
 public:
     ListNode* swapNodes(ListNode* head, int k) {
 
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
+        cout.tie(NULL);
+
         ListNode* node1=head,*node2=head,*current=head;
+        
+        //when node1 reaches to kth value from start we will set node2 to head now move both by this way distance between node1 and node2 will remain equal to k
         
         int i=1;
         while(node1->next){
