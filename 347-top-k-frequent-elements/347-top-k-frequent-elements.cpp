@@ -13,14 +13,13 @@ public:
         int size=nums.size();        
         
         for(int i=0;i<size;i++){
-            while(i<size and nums[i]==n){count++;i++;if(i==size)goto cnt;}
+            while(i<size and nums[i]==n)count++,i++;
             v.push_back(make_pair(n,count));
+            if(i==size)continue;
             count=0;
             n=nums[i];
             i--;
         }
-        cnt:
-        v.push_back(make_pair(n,count));
         sort(v.begin(),v.end(),cmp);
         vector<int>ans;
         for(int i=0;i<k;i++){
