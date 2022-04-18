@@ -27,7 +27,7 @@ int main() {
 
 
 // User function Template for C
-#define ll long long
+#define ll long long int
 struct pair getMinMax(long long int arr[], long long int n) {
     
     ll Min=arr[0];
@@ -41,4 +41,5 @@ struct pair getMinMax(long long int arr[], long long int n) {
     p.min=Min;
     p.max=Max;
     return p;
+    
 }
